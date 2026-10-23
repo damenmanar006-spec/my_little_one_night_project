@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#260d18">
+  <title>My Little One Night Website</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#dashboard" aria-label="My Little One Night Website home">
+        <span class="brand-icon">S</span>
+        <span>Study<span class="brand-accent">Flow</span></span>
+      </a>
+      <p class="nav-label">WORKSPACE</p>
+      <nav class="navigation" aria-label="Main navigation">
+        <a class="nav-item active" href="#dashboard">▦ Dashboard</a>
+        <a class="nav-item" href="#tasks">✓ My tasks</a>
+        <a class="nav-item" href="#timetable">▦ Timetable</a>
+      </nav>
+      <div class="sidebar-bottom">
+        <p class="muted">YOUR SPACE. YOUR PACE.</p>
+        <button id="theme-toggle" class="theme-button" type="button" aria-pressed="false">
+          <span id="theme-icon" aria-hidden="true">☾</span>
+          <span id="theme-label">Switch theme</span>
+        </button>
+      </div>
+    </aside>
+
+    <main class="main-content" id="dashboard">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">YOUR PERSONAL STUDY SPACE</p>
+          <h1>Let's make progress.</h1>
+          <p class="muted">Small steps count. Keep moving.</p>
+        </div>
+        <div class="date-pill" id="today-label">Your study dashboard</div>
+      </header>
+
+      <section class="welcome-panel">
+        <div>
+          <p class="eyebrow">A LITTLE PROGRESS EVERY DAY</p>
+          <h2>Your goals deserve your focus.</h2>
+          <p>Organize your workload, find your rhythm, and make time for what matters.</p>
+        </div>
+        <div class="welcome-symbol" aria-hidden="true">✳</div>
+      </section>
+
+      <section class="challenge-panel" aria-labelledby="anis-title">
+        <div class="challenge-copy">
+          <p class="eyebrow">THE ANIS DEBATE LAB</p>
+          <h2 id="anis-title">A very serious leadership question.</h2>
+          <p>Anis, choose wisely. The committee is watching. 👀</p>
+        </div>
+        <div class="debate-progress" id="debate-progress">ROUND 1 OF 3</div>
+        <div class="debate-stage" id="debate-stage" aria-live="polite">
+          <h3 class="debate-question" id="debate-question">Who should lead?</h3>
+          <p class="debate-description" id="debate-description">Choose your position. There is no going back. 😈</p>
+          <div class="debate-options" id="debate-options">
+            <button class="debate-option" type="button" data-choice="women"><span class="choice-number">01</span><span>Women should lead</span></button>
+            <button class="debate-option" type="button" data-choice="men"><span class="choice-number">02</span><span>Men should lead</span></button>
+            <button class="debate-option choice-together" type="button" data-choice="together"><span class="choice-number">03</span><span>They should lead together</span><span class="choice-tag">THE CORRECT ANSWER ✨</span></button>
+          </div>
+        </div>
+        <p class="debate-hint" id="debate-hint" role="status" aria-live="polite">Your choice locks in the next round. No back button, Anis.</p>
+        <div class="certificate hidden" id="anis-certificate" aria-live="polite">
+          <div class="certificate-stars" aria-hidden="true">✦ ✧ ✦</div>
+          <p class="certificate-kicker">OFFICIAL WEBSITE DOCUMENT</p>
+          <h3>Certificate of Certified Sanity</h3>
+          <p class="certificate-recipient">Proudly awarded to <strong>Anis</strong></p>
+          <p>For recognizing that good leadership is a team effort, not a gender competition.</p>
+          <div class="certificate-stamp">SANE<br>MAN ✓</div>
+          <p class="certificate-footer">Awarded by the Committee for Common Sense · My Little One Night Website</p>
+          <button type="button" class="secondary-button" id="replay-debate">Run the debate again</button>
+        </div>
+      </section>
+
+      <section class="stats-grid" aria-label="Study statistics">
+        <article class="stat-card"><span class="stat-label">Total tasks</span><p class="stat-value" id="total-count">0</p><span class="stat-note">Tasks in your workspace</span></article>
+        <article class="stat-card"><span class="stat-label">Completed</span><p class="stat-value" id="completed-count">0</p><span class="stat-note">One step at a time</span></article>
+        <article class="stat-card"><span class="stat-label">In progress</span><p class="stat-value" id="pending-count">0</p><span class="stat-note">Still on your list</span></article>
+        <article class="stat-card"><span class="stat-label">Overdue</span><p class="stat-value" id="overdue-count">0</p><span class="stat-note">Needs your attention</span></article>
+      </section>
+
+      <section class="content-panel" id="tasks">
+        <div class="section-heading">
+          <div><p class="eyebrow">STAY ORGANIZED</p><h2>My tasks</h2></div>
+          <span class="count-pill" id="task-count-label">0 tasks</span>
+        </div>
+
+        <form id="task-form" class="task-form" novalidate>
+          <div class="form-field title-field">
+            <label for="task-title">Task title</label>
+            <input id="task-title" name="title" type="text" placeholder="e.g. Review Java classes" maxlength="100" required>
+          </div>
+          <div class="form-field">
+            <label for="task-subject">Subject</label>
+            <input id="task-subject" name="subject" type="text" placeholder="e.g. OOP" maxlength="60" required>
+          </div>
+          <div class="form-field">
+            <label for="task-deadline">Deadline</label>
+            <input id="task-deadline" name="deadline" type="date" required>
+          </div>
+          <div class="form-field">
+            <label for="task-priority">Priority</label>
+            <select id="task-priority" name="priority">
+              <option value="medium">Medium</option><option value="high">High</option><option value="low">Low</option>
+            </select>
+          </div>
+          <div class="form-actions">
+            <button class="primary-button" type="submit" id="submit-task">+ Add task</button>
+            <button class="secondary-button hidden" type="button" id="cancel-edit">Cancel</button>
+          </div>
+        </form>
+
+        <div class="task-toolbar">
+          <label class="filter-label" for="task-filter">Show</label>
+          <select id="task-filter">
+            <option value="all">All tasks</option><option value="pending">Incomplete</option><option value="completed">Completed</option><option value="overdue">Overdue</option>
+          </select>
+          <label class="filter-label search-label" for="task-search">Search</label>
+          <input id="task-search" class="search-input" type="search" placeholder="Find a task or subject…" aria-label="Search tasks">
+          <span id="task-feedback" class="feedback" role="status" aria-live="polite"></span>
+        </div>
+        <div id="task-list" class="task-list"></div>
+      </section>
+
+      <section class="content-panel" id="timetable">
+        <div class="section-heading">
+          <div><p class="eyebrow">MAKE TIME FOR YOURSELF</p><h2>Weekly timetable</h2></div>
+          <button class="secondary-button" type="button" id="add-session-button">+ Add session</button>
+        </div>
+        <form id="session-form" class="session-form hidden" novalidate>
+          <div class="form-field"><label for="session-day">Day</label><select id="session-day" required></select></div>
+          <div class="form-field"><label for="session-subject">Subject</label><input id="session-subject" maxlength="60" placeholder="e.g. Algorithms" required></div>
+          <div class="form-field"><label for="session-start">Start</label><input id="session-start" type="time" required></div>
+          <div class="form-field"><label for="session-end">End</label><input id="session-end" type="time" required></div>
+          <div class="form-field"><label for="session-activity">Activity</label><input id="session-activity" maxlength="100" placeholder="e.g. Practice exercises" required></div>
+          <div class="form-actions"><button class="primary-button" type="submit">Save session</button><button class="secondary-button" type="button" id="cancel-session">Cancel</button></div>
+        </form>
+        <p id="session-feedback" class="feedback session-feedback" role="status" aria-live="polite"></p>
+        <div id="timetable-content" class="timetable-grid"></div>
+      </section>
+
+      <footer class="footer">Made for your next little win. <span>♥</span></footer>
+    </main>
+  </div>
+</body>
+</html>
